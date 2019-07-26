@@ -1,0 +1,34 @@
+.navbar{
+	margin-bottom: 15px;
+}
+
+.jumbotron{
+	margin-top:20px;
+}
+
+.card-footer{
+	margin-bottom:30px;
+}
+
+.card-body{
+	padding:15px;
+}
+
+.card-img-top{
+	padding:0px;
+}
+
+ #colz{
+	 padding: 0px 15px;
+	 margin: 0px 0px 10px 0px;
+	 height:auto;
+}
+
+ form.delete-form{
+	 display:inline;
+ }
+
+ a.navbar-brand{
+	 padding-bottom:7px;
+ }
+

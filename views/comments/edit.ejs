@@ -1,0 +1,20 @@
+<% include ../partials/header.ejs %>
+
+<div class="container ">
+    <h1 style="text-align: center">Edit comment <%= foundComment._id %> for <%= foundCampground.name %></h1>
+
+    <div class="row ">
+        <div style="width:30%; margin: 25px auto;">
+            <form action="/campgrounds/<%= foundCampground._id %>/comments/<%=foundComment._id%>?_method=PUT" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" value="<%=foundComment.text%>" name="comment[text]">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+            </form>
+            <a href="/campgrounds">View existing campgrounds</a>
+        </div>
+    </div>
+
+</div>
+
+<% include ../partials/footer.ejs %>

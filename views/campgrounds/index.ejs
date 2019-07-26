@@ -1,0 +1,46 @@
+<% include ../partials/header.ejs %>
+
+<!--IMPORTANT-->
+<!--We do have access to any of the variables that we pass through our template.-->
+
+
+
+<!--BODY-->
+<div class="container">
+    <header class="jumbotron">
+        <h1>Welcome to YelpCamp</h1>
+        <p> View our hand-picked campgrounds from all over the world</p>
+        <a class="btn btn-primary" href="/campgrounds/new">Add new campground</a>
+    </header>
+
+    <div class="container">
+        <div class="row  ">
+
+            <% campgrounds.forEach(function (camp){ %>
+                <div id="colz" class=" col-lg-3 col-md-4 col-sm-12  ">
+                    <div class="card">
+
+                        <img src="<%= camp.image %>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= camp.name %></h5>
+                            <p class="card-text"><%= camp.description.substring(0,100) %> </p>
+                            <a href="/campgrounds/<%= camp._id %>" class="btn btn-primary">More information</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+</div>
+<% include ../partials/footer.ejs %>
+
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img class="card-img-top" src="" alt="">-->
+<!--    <div class="card-body">-->
+<!--        <h5 class="card-title"></h5>-->
+
+<!--    </div>-->
+<!--</div>-->

@@ -1,0 +1,97 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="ui medium  header">YelpCamp</div>
+            <div class="ui vertical menu">
+                <a href="https://www.google.com" class="item">
+                    Visit Google
+                </a>
+                <div class=" active link item">
+                    Javascript Link
+                </div>
+                <div class="link item">
+                    Javascript Link
+                </div>
+                <div class=" link item">
+                    Javascript Link
+                </div>
+                MAP
+            </div>
+        </div>
+
+        <div class="col-md-9">
+
+
+            <div class="card">
+                <img src="<%= foundCampground.image %>" alt="" class="card-img-top">
+                <div class="caption-full ">
+
+                </div>
+                <div class="card-body">
+                    <a href=""><h1 class="card-title" style="display: inline"> <%= foundCampground.name %></h1></a>
+                    <h4 style="display: inline; float:right;" class="m-0">$<%=foundCampground.price%>/night</h4>
+                    <p class="card-text"><%= foundCampground.description %></p>
+                    <p class="card-text"><em>Author: <%= foundCampground.author.username %></em></p>
+                    <a class="btn btn-success" href="/campgrounds/<%= foundCampground._id %>/comments/new"> Leave a
+                        review!</a>
+
+                    <% if(currentUser && foundCampground.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-warning" href="/campgrounds/<%= foundCampground._id %>/edit"> Edit</a>
+                        <form class="delete-form" style="display: inline" action="/campgrounds/<%= foundCampground._id %>?_method=DELETE"
+                              method="POST">
+                            <button class="btn btn-danger">Delete the post!</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+            <a href="/campgrounds">View existing backgrounds</a>
+
+            <div class="card-footer text-muted">
+                <div class="ui comments">
+                    <% foundCampground.comments.forEach(function (comment) { %>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="/images/avatar/small/stevie.jpg">
+                            </a>
+                            <div class="content">
+                                <a class="author"> <strong><%= comment.author.username %></strong> </a>
+                                <div class="metadata">
+                                    <div class="date">2 days ago</div>
+                                    <div class="rating">
+                                        <i class="star icon"></i>
+                                        5 Faves
+                                    </div>
+
+                                    <%if(currentUser&&comment.author.id.equals(currentUser._id)){%>
+                                    <a class="btn btn-warning"
+                                       href="/campgrounds/<%= foundCampground._id %>/comments/<%= comment._id %>/edit">
+                                        Edit!</a>
+
+                                    <form class="delete-form" action="/campgrounds/<%= foundCampground._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                          method="POST">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <% } %>
+
+                                </div>
+                                <div class="text">
+                                    <%= comment.text %>
+                                </div>
+                            </div>
+                        </div>
+
+                    <% }) %>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<% include ../partials/footer.ejs %>
