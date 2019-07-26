@@ -53,7 +53,5 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 
 //====================
 //SERVER LISTENING
-app.listen(3000, function () {
-    console.log("Server is up!!!")
-});
+app.listen(port);
 
