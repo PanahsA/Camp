@@ -63,10 +63,13 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //SERVER LISTENING
 let port = process.env.PORT;
 if (port == null || port == "") {
-    port = 27017;
+    port = 8000;
 }
 app.listen(port);
 
 // app.listen(3000,function () {
 //     console.log("Server is up");
 // });
+
+// UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
+// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
