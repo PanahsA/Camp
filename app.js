@@ -63,7 +63,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //SERVER LISTENING
 let port = process.env.PORT;
 if (port == null || port == "") {
-    port = 8000;
+    port = 27017;
 }
 app.listen(port);
 
