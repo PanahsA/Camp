@@ -18,7 +18,7 @@ var indexRoutes = require("./routes"); //or index for all purpose routes
 var commentRoutes = require("./routes/comments");
 
 // mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
-mongoose.connect(process.env.DATABASEURL,
+mongoose.connect("mongodb+srv://PanahsA:Rnnr22nxal!!@cluster0-iqmnu.mongodb.net/test?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useCreateIndex: true
