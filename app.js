@@ -66,18 +66,19 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //====================
 
 
-// let port = process.env.PORT;
-// if (port == null || port == "") {
-//     port = 8000;
-// }
-// app.listen(port);
+let port = 8000;
+if (port == null || port == "") {
+    port = 8000;
+}
+app.listen(port);
 
+console.log("to port einai : "+port);
 
-var port=process.env.PORT||3000;
-app.listen(port,function () {
-    console.log("Server is up");
-});
+// var port=process.env.PORT||3000;
+// app.listen(port,function () {
+//     console.log("Server is up");
+// });
 
 
 // UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
-// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017] error
+// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017] error gia otan den vriskei db /= an den exei whitelisted ip
