@@ -65,19 +65,23 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //SERVER LISTENING
 //====================
 
+//
+// let port = 8000;
+// if (port == null || port == "") {
+//     port = 8000;
+// }
+// app.listen(port);
 
-let port = 8000;
-if (port == null || port == "") {
-    port = 8000;
-}
-app.listen(port);
-
-console.log("to port einai : "+port);
+// console.log("to port einai : "+port);
 
 // var port=process.env.PORT||3000;
 // app.listen(port,function () {
 //     console.log("Server is up");
 // });
+
+app.listen(3000,function(){
+    console.log("serber is up");
+});
 
 
 // UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
