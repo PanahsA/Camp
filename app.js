@@ -17,16 +17,16 @@ var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes"); //or index for all purpose routes
 var commentRoutes = require("./routes/comments");
 
-mongoose.connect("mongodb+srv://PanahsA:Rnnr22nxal!!@cluster0-iqmnu.mongodb.net/test?retryWrites=true&w=majority",
+// mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
+mongoose.connect(process.env.DATABASEURL,
     {
         useNewUrlParser: true,
         useCreateIndex: true
     }).then(() => {
-    console.log("Connected to DB!");
+    console.log("Connected to AtlasDB!");
 }).catch(err => {
     console.log("error: ", err.message);
 });
-
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -61,15 +61,18 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 //====================
 //SERVER LISTENING
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8000;
-}
-app.listen(port);
+//====================
 
-// app.listen(3000,function () {
-//     console.log("Server is up");
-// });
+
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//     port = 8000;
+// }
+// app.listen(port);
+
+app.listen(3000,function () {
+    console.log("Server is up");
+});
 
 // UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
 // n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
