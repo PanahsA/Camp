@@ -65,12 +65,12 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //SERVER LISTENING
 //====================
 
-//
-// let port = 8000;
-// if (port == null || port == "") {
-//     port = 8000;
-// }
-// app.listen(port);
+
+let port = 8000;
+if (port == null || port == "") {
+    port = 8000;
+}
+app.listen(port);
 
 // console.log("to port einai : "+port);
 
