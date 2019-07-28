@@ -67,9 +67,10 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8000;
-}
+// if (port == null || port == "") {
+//     port = 8000;
+// }
+console.log(port);
 app.listen(port);
 
 // console.log("to port einai : "+port);
@@ -79,9 +80,9 @@ app.listen(port);
 //     console.log("Server is up");
 // });
 
-app.listen(3000,function(){
-    console.log("serber is up");
-});
+// app.listen(3000,function(){
+//     console.log("serber is up");
+// });
 
 
 // UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
