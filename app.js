@@ -17,8 +17,9 @@ var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes"); //or index for all purpose routes
 var commentRoutes = require("./routes/comments");
 
+var url =process.env.DATABASEURL|| "mongodb://localhost:27017/yelp_camp";
 // mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
-mongoose.connect(process.env.DATABASEURL,
+mongoose.connect(url,
     {
         useNewUrlParser: true,
         useCreateIndex: true
@@ -65,15 +66,18 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //====================
 
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8000;
-}
-app.listen(port);
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//     port = 8000;
+// }
+// app.listen(port);
 
-// app.listen(3000,function () {
-//     console.log("Server is up");
-// });
+
+var port=process.env.PORT||3000;
+app.listen(port,function () {
+    console.log("Server is up");
+});
+
 
 // UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
-// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017] error
