@@ -19,7 +19,7 @@ var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes"); //or index for all purpose routes
 var commentRoutes = require("./routes/comments");
 
-var url =process.env.DATABASEURL|| "mongodb://localhost:27017/yelp_camp";
+var url = "mongodb://localhost:27017/yelp_camp";
 mongoose.connect(url,
     {
         useNewUrlParser: true,
@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
 });
 
 
-
+// POSITIONS OF COMPONENTS IS SUPER IMPORTANT
 app.use("/campgrounds", campgroundsRoutes);
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
@@ -76,5 +76,5 @@ let port = process.env.PORT;
 app.set('port',3000||process.env.PORT);
 
 app.listen(port,function () {
-    console.log("Server is listeing");
+    console.log("Server is listening");
 });
