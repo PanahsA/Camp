@@ -71,9 +71,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //SERVER LISTENING
 //====================
 
-//
-// let port = process.env.PORT;
-// app.set('port',3000||process.env.PORT);
+
+let port = process.env.PORT;
+app.set('port',3000||process.env.PORT);
 
 app.listen(3000,function () {
     console.log("Server is listeing");
