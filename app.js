@@ -1,21 +1,25 @@
 //Requirements
-var express = require("express");
-var app = express();
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var Comment = require("./models/comment");
-var Campground = require("./models/campground");
-var User = require("./models/user");
-var seedDB = require("./seeds");
-var passport = require("passport");
-var LocalSrategy = require("passport-local");
-var methodOverride = require("method-override");
-var flash = require('connect-flash');
+var express        =require("express");
+var app            =express();
+var mongoose       =require("mongoose");
+var bodyParser     =require("body-parser");
+var Comment        =require("./models/comment");
+var Campground     =require("./models/campground");
+var User           =require("./models/user");
+var seedDB         =require("./seeds");
+var passport       =require("passport");
+var LocalSrategy   =require("passport-local");
+var methodOverride =require("method-override");
+var flash          =require('connect-flash');
 
 
 var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes"); //or index for all purpose routes
 var commentRoutes = require("./routes/comments");
+app.use("/campgrounds", campgroundsRoutes);
+app.use(indexRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
+
 
 var url =process.env.DATABASEURL|| "mongodb://localhost:27017/yelp_camp";
 // mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
@@ -24,7 +28,7 @@ mongoose.connect(url,
         useNewUrlParser: true,
         useCreateIndex: true
     }).then(() => {
-    console.log("Connected to AtlasDB!");
+    console.log("Connected to db: "+url);
 }).catch(err => {
     console.log("error: ", err.message);
 });
@@ -35,6 +39,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
+
 
 // seedDB();
 
@@ -57,9 +62,7 @@ app.use(function (req, res, next) {
     res.locals.success = req.flash("success");
     next();
 });
-app.use("/campgrounds", campgroundsRoutes); //Cleaning up example, dont like it
-app.use(indexRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+
 
 //====================
 //SERVER LISTENING
@@ -67,11 +70,8 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 let port = process.env.PORT;
+app.set('port',3000||process.env.PORT);
 
-app.listen(port,function () {
+app.listen(3000,function () {
     console.log("Server is listeing on port: "+port);
 });
-
-
-// UnhandledPromiseRejectionWarning: MongoNetworkError: failed to connect to server [localhost:27017] o
-// n first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017] error gia otan den vriskei db /= an den exei whitelisted ip
