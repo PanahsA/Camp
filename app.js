@@ -76,5 +76,5 @@ let port = process.env.PORT;
 app.set('port',3000||process.env.PORT);
 
 app.listen(port,function () {
-    console.log("Server is listening");
+    console.log("Server is listening on "+port);
 });

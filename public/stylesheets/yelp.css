@@ -1,10 +1,21 @@
 .navbar{
 	margin-bottom: 15px;
+	background-color: #777;
 }
+
+
+.navbar{
+	background-color: #222;
+}
+
 
 .jumbotron{
 	margin-top:20px;
 }
+#jumbo{
+	padding:10px;
+}
+
 
 .card-footer{
 	margin-bottom:30px;
@@ -32,3 +43,22 @@
 	 padding-bottom:7px;
  }
 
+/*CAR IN MAIN*/
+.carousel{
+	color: white;
+	z-index: 0;
+
+}
+
+.carousel img{
+	width: 200px;
+	height: 400px;
+	object-fit: cover;
+	z-index: 0;
+}
+
+.carousel-caption{
+	height: 250px;
+	z-index: 0;
+
+}

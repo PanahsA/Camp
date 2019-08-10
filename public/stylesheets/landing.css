@@ -2,11 +2,12 @@ body{
 	background-color: black;
 }
 
+
 #landing-header {
 	z-index: 1; /*To use this you need a position other than static*/
 	position: relative;
 	text-align: center;
-	padding-top: 40vh; /* viewheight*/
+	padding-bottom: 40px; /* viewheight*/
 }
 
 #landing-header h1 {
