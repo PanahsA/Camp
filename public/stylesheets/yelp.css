@@ -1,3 +1,9 @@
+/* Google Maps */
+#map {
+	height: 400px;
+	width: 100%;
+}
+
 .navbar{
 	margin-bottom: 15px;
 	background-color: #777;
